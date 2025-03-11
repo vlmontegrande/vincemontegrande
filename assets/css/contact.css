@@ -146,12 +146,6 @@ form {
     border-radius: 2rem;
 }
 
-fieldset:has(input:invalid) button, 
-fieldset:has(textarea:invalid) button {
-    opacity: 0.5;
-    pointer-events: none;
-}
-
 fieldset {
     display: flex;
     flex-direction: column;
@@ -170,9 +164,14 @@ label {
 }
 
 input, textarea {
-    font-family: "Spectral", Arial, Sans-serif;
+    font-family: "Spectral", Arial, Sans-serif;     
     margin-bottom: 1rem;
     border: 1px solid var(--on-primary-container, brown);
+}
+
+input:user-invalid, textarea:user-invalid {
+    border: 2px solid red;
+    outline: none;
 }
 
 input:focus, textarea:focus {
@@ -198,6 +197,13 @@ button:hover {
 
 #error-output {
     color: red;
+    text-align: right;
+    margin-bottom: 1rem;
+}
+
+#info-output {
+    text-align: right;
+    margin-top: -1rem;
 }
 
 address {

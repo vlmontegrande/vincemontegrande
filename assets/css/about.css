@@ -1,0 +1,257 @@
+@font-face {
+    font-family: "Volkhov";
+    src: url("../fonts/Volkhov/Volkhov-Regular.ttf");
+}
+
+@font-face {
+    font-family: "Volkhov";
+    src: url("../fonts/Volkhov/Volkhov-Bold.ttf");
+    font-weight: bold;
+}
+
+
+@font-face {
+    font-family: "Spectral";
+    src: url("../fonts/Spectral/Spectral-Regular.ttf");
+}
+
+:root {
+    --header-footer-height: 64px;
+    --big-link-size: 1.5rem;
+    --small-link-size: 1rem;
+    --header-size: 3rem;
+    --tablet-header-size: 2.5rem;
+    --phone-header-size: 2rem;
+
+    --nav-link-color: color(srgb 0.36 0.22 0.07);
+    --background-color: #fff6eb;
+    --on-background-color: #1d1a15;
+    --primary-color: #705d0d;
+    --on-primary-color: #ffffff;
+    --primary-container: #fce186;
+    --on-primary-container: #554500;
+    --surface-container: #f5eddf;
+    --text-color: #201d18;
+}
+
+/* Common between page styles */
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    min-height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: var(--background-color, white);
+}
+  
+nav {
+    display: flex;
+    height: var(--header-footer-height, 64px);
+    justify-content: space-between;
+    align-items: center;
+    font-family: "Volkhov", Arial, Sans-serif;
+    font-weight: bold;
+}
+
+nav ul {
+    width: 15rem;
+    margin-right: 1rem;
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+    font-size: var(--small-link-size);
+}
+
+nav a {
+    display: inline-block;
+    text-decoration: none;
+    color: var(--nav-link-color, brown);
+    transition: transform 0.3s;
+}
+  
+nav a:hover {
+    transform: scale(1.1);
+}
+
+nav svg {
+    display: none;
+}
+
+#main-link {
+    color: var(--nav-link-color, brown);
+    font-size: var(--big-link-size, 1.5rem);
+    margin-left: 1rem;
+}
+
+hr {
+    display: none;
+}
+
+footer {
+    min-height: var(--header-footer-height, 64px);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    font-family: "Volkhov", Arial, Sans-serif;
+}
+
+footer > :first-child {
+    margin-left: 1rem;
+}
+
+footer > :last-child {
+    margin-right: 1rem;
+}
+
+footer a {
+    font-size: (--big-link-size, 1.5rem);
+    text-decoration: none;
+    color: var(--nav-link-color, brown);
+    font-weight: bold;
+    transition: transform 0.3s;
+}
+
+footer a:hover {
+    transform: scale(1.1);
+}
+
+footer small {
+    font-size: var(--small-link-size, 1rem);
+    color: var(--nav-link-color, brown);
+}
+
+/* Page styles */
+
+main {
+    font-family: "Spectral", Arial, Sans-serif;
+    flex: 1;
+    color: var(--primary-color, brown);
+}
+
+h1, h2 {
+    font-family: "Volkhov", Arial, Sans-serif;
+    font-weight: bold;
+}
+
+figure {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    margin-bottom: 2rem;
+}
+
+img {
+    width: 100%;
+    display: block;
+    object-position: top;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+}
+
+main a {
+    display: inline-block;
+    text-decoration: none;
+    color: var(--primary-color, brown);
+    font-weight: bold;
+    transition: transform 0.3s;
+}
+
+main a:hover {
+    transform: scale(1.1);
+}
+
+main header {
+    background-color: var(--background-color);
+}
+
+main header h1 {
+    position: absolute;
+    top: 50%;  
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-shadow: 2px 2px 4px black; 
+    text-align: center;
+    font-size: 5rem;
+}
+
+#content {
+    flex: 1;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 2rem;
+}
+
+.content-section {
+    display: flex; 
+    flex-direction: column; 
+    justify-content: center;
+    align-items: center; 
+    width: 15rem;
+    height: 15rem;
+    padding: 2rem; 
+    box-sizing: border-box; 
+    background-color: var(--primary-container, yellow);
+    border-radius: 2rem;
+}
+
+.content-section h2 {
+    font-size: 1.5rem;
+}
+
+.content-section p {
+    font-size: 1rem; 
+}
+
+/* Tablet/Restrictive Laptop Breakpoint */
+
+@media screen and (min-width: 778px) and (max-width: 1023px) {
+    .content-section h2 {
+        font-size: 1.25rem;
+    }
+    
+    .content-section p {
+        font-size: 0.8rem; 
+    }
+    
+}
+
+/* Phone Breakpoint */
+
+@media screen and (max-width: 777px) {
+    nav ul {
+        display: none;
+    }
+
+    nav svg {
+        display: block;
+        margin-right: 1rem;
+        fill: var(--nav-link-color, brown);
+    }
+
+    #content {
+        flex-direction: column;
+    }
+
+    figure img, figure figcaption {
+        display: none;
+    }
+
+    main header h1 {
+        transform: none;
+        position: static;
+        font-size: 2.5rem;
+        text-shadow: none;
+        display: block;
+        height: 5rem;
+    }
+}

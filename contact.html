@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Contact</title>
+        <link rel="stylesheet" href="assets/css/contact.css">
+    </head>
+    <body>
+        <header>
+            <nav>
+                <a href="index.html" id="main-link">Vince Montegrande</a>
+                <ul>
+                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+                <svg viewBox="0 0 100 80" width="40" height="40">
+                    <rect width="100" height="20" rx="8"></rect>
+                    <rect y="30" width="100" height="20" rx="8"></rect>
+                    <rect y="60" width="100" height="20" rx="8"></rect>
+                </svg>
+            </nav>
+        </header>
+
+        <hr>
+
+        <main>
+            <form method="GET" action="https://httpbin.org/get">
+                <fieldset>
+                        <legend>Contact</legend>
+                
+                        <label for="name">Name*:</label>
+                        <input type="text" id="name" name="name" required>
+                
+                        <label for="email">Email*:</label>
+                        <input type="text" id="email" name="email" required>
+
+                        <label for="message">Message*:</label>
+                        <textarea id="message" name="message" rows="4" required></textarea>
+
+                        <input id="possible_bot" name="possible_bot" value="true" hidden>
+                    
+                        <button type="submit">Submit</button>
+
+                        <output id="error-output">Test error</output>
+                        <output id="info-output">Test info</output>
+                </fieldset>
+              </form>
+              <address>
+                <div id="address-container">
+                    <h1>Social and Professional Links</h1>
+                    <p>Email: <a target="_blank" href="mailto:vlmontegrande@gmail.com">vlmontegrande@gmail.com</a></p>
+                    <p>Github: <a target="_blank" href="https://github.com/vlmontegrande">vlmontegrande</a></p>
+                    <p>Instagram: <a target="_blank" href="https://www.instagram.com/vince_montegrande/">vince_montegrande</a></p>
+                    <p>Resume: <a target="_blank" href="assets/misc/resume.pdf">pdf</a></p>
+                </div>
+            </address>
+        </main>
+
+        <hr>
+
+        <footer>
+            <a href="https://github.com/vlmontegrande/cse134b-hw2.git">Website Github</a>
+            <p><small>&copy; 2025 Vince Montegrande</small></p>
+        </footer>
+    </body>
+</html>

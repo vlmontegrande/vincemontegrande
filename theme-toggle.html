@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Contact</title>
+        <style>
+            @font-face {
+                font-family: "Volkhov";
+                src: url("assets/fonts/Volkhov/Volkhov-Regular.ttf");
+            }
+
+            @font-face {
+                font-family: "Volkhov";
+                src: url("assets/fonts/Volkhov/Volkhov-Bold.ttf");
+                font-weight: bold;
+            }
+
+
+            @font-face {
+                font-family: "Spectral";
+                src: url("assets/fonts/Spectral/Spectral-Regular.ttf");
+            }
+
+            :root {
+                --header-footer-height: 64px;
+                --big-link-size: 1.5rem;
+                --small-link-size: 1rem;
+                --header-size: 3rem;
+                --header-two-size: 2rem;
+                --header-three-size: 1rem;
+                --tablet-header-size: 2.5rem;
+                --phone-header-size: 2rem;
+
+                --nav-link-color: color(srgb 0.36 0.22 0.07);
+                --background-color: #fff6eb;
+                --on-background-color: #1d1a15;
+                --primary-color: #705d0d;
+                --on-primary-color: #ffffff;
+                --primary-container: #fce186;
+                --on-primary-container: #554500;
+                --surface-container: #f5eddf;
+                --text-color: #201d18;
+            }
+
+            /* Theme picker styles */
+
+            :root.dark-theme {
+                --background-color: #292524;
+                --on-background-color: #f5f5f4;
+                --primary-color: #fde68a;
+                --on-primary-color: #292524;
+                --primary-container: #6b5d00;
+                --on-primary-container: #fff8c7;
+                --surface-container: #44403c;
+                --text-color: #e7e5e4;
+                --nav-link-color: #fde68a;
+            }
+
+            #theme-toggle {
+                display: none;
+                position: fixed;
+                bottom: 44px;
+                right: 20px;
+                width: 44px;
+                height: 44px;
+                transition: transform 0.3s;
+                fill: var(--nav-link-color, brown);
+            }
+
+            #theme-toggle:hover {
+                transform: scale(1.1);
+            }
+
+            /* Common between page styles */
+
+            * {
+                margin: 0;
+                padding: 0;
+            }
+
+            body {
+                min-height: 100dvh;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                background-color: var(--background-color, white);
+            }
+            
+            nav {
+                display: flex;
+                height: var(--header-footer-height, 64px);
+                justify-content: space-between;
+                align-items: center;
+                font-family: "Volkhov", Arial, Sans-serif;
+                font-weight: bold;
+            }
+
+            nav ul {
+                width: 15rem;
+                margin-right: 1rem;
+                display: flex;
+                justify-content: space-between;
+                list-style: none;
+                font-size: var(--small-link-size);
+            }
+
+            nav a {
+                display: inline-block;
+                text-decoration: none;
+                color: var(--nav-link-color, brown);
+                transition: transform 0.3s;
+            }
+            
+            nav a:hover {
+                transform: scale(1.1);
+            }
+
+            nav #hamburger-menu {
+                display: none;
+            }
+
+            #main-link {
+                color: var(--nav-link-color, brown);
+                font-size: var(--big-link-size);
+                margin-left: 1rem;
+            }
+
+            hr {
+                display: none;
+            }
+
+            footer {
+                min-height: var(--header-footer-height, 64px);
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                gap: 1rem;
+                font-family: "Volkhov", Arial, Sans-serif;
+            }
+
+            footer > :first-child {
+                margin-left: 1rem;
+            }
+
+            footer > :last-child {
+                margin-right: 1rem;
+            }
+
+            footer a {
+                font-size: (--big-link-size, 1.5rem);
+                text-decoration: none;
+                color: var(--nav-link-color, brown);
+                font-weight: bold;
+                transition: transform 0.3s;
+            }
+
+            footer a:hover {
+                transform: scale(1.1);
+            }
+
+            footer small {
+                font-size: var(--small-link-size, 1rem);
+                color: var(--nav-link-color, brown);
+            }
+
+            /* Page styles */
+
+            main {
+                font-family: "Spectral", Arial, Sans-serif;
+                flex: 1;
+                display: flex;
+                justify-content: space-around;
+                padding: 2rem;
+            }
+
+            form {
+                width: 40%;
+                height: fit-content;
+                background-color: var(--surface-container, gray);
+                padding: 2rem;
+                border-radius: 2rem;
+            }
+
+            fieldset {
+                display: flex;
+                flex-direction: column;
+                border: none;  
+                color: var(--primary-color, brown);
+            }
+
+            legend {
+                font-family: "Volkhov", Arial, Sans-serif;
+                font-size: var(--header-size, 3rem);
+                font-weight: bold;
+            }
+
+            label {
+                font-family: "Volkhov", Arial, Sans-serif;
+            }
+
+            input, textarea {
+                font-family: "Spectral", Arial, Sans-serif;     
+                margin-bottom: 1rem;
+                border: 1px solid var(--on-primary-container, brown);
+            }
+
+            input:user-invalid, textarea:user-invalid {
+                border: 2px solid red;
+                outline: none;
+            }
+
+            input:focus, textarea:focus {
+                outline-color: var(--on-primary-container, brown);
+            }
+
+            button {
+                align-self: end;
+                width: 8rem;
+                height: 2rem;
+                color: var(--primary-color, brown);
+                background-color: var(--primary-container, yellow);
+                font-family: "Volkhov", Arial, Sans-serif;
+                border-radius: 2rem;
+                border: 1px solid var(--primary-color, brown);
+                font-weight: bold;
+                transition: transform 0.3s;
+            }
+
+            button:hover {
+                transform: scale(1.1);
+            }
+
+            #error-output {
+                color: red;
+                text-align: right;
+                margin-bottom: 1rem;
+            }
+
+            #info-output {
+                text-align: right;
+                margin-top: -1rem;
+            }
+
+            address {
+                width: 40%;
+                color: var(--primary-color, brown);
+            }
+
+            address h1 {
+                font-family: "Volkhov", Arial, Sans-serif;
+                font-size: var(--header-size, 3rem);
+                font-style: normal;
+                font-weight: bold;
+            }
+
+            address a {
+                text-decoration: none;
+                color: var(--primary-color, brown);
+                font-weight: bold;
+                transition: transform 0.3s;
+                display: inline-block;
+            }
+
+            address a:hover {
+                transform: scale(1.1);
+            }
+
+            #address-container {
+                height: fit-content;
+                background-color: var(--primary-container, yellow);
+                padding: 1rem;
+                border-radius: 2rem;
+            }
+
+            /* Tablet/Restrictive Laptop Breakpoint */
+
+            @media screen and (min-width: 778px) and (max-width: 1023px) {
+                main {
+                    flex-direction: column;
+                }
+
+                form, address {
+                    width: 100%;
+                    box-sizing: border-box;
+                    margin-bottom: 2rem;
+                }
+
+                address {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                }
+            }
+
+            /* Phone Breakpoint */
+
+            @media screen and (max-width: 777px) {
+                nav ul {
+                    display: none;
+                }
+
+                nav svg {
+                    display: block;
+                    margin-right: 1rem;
+                    fill: var(--nav-link-color, brown);
+                }
+
+                main {
+                    flex-direction: column;
+                }
+
+                form, address {
+                    box-sizing: border-box;
+                    margin-bottom: 2rem;
+                }
+
+                form {
+                    min-width: 100%;
+                }
+
+                address {
+                    width: 100%;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                }
+            }
+
+            @media screen and (max-width: 395px) {
+                legend, address h1 {
+                    font-size: 32px;
+                }
+
+                footer a, footer p small {
+                    font-size: 12px;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            <nav>
+                <a href="index.html" id="main-link">Vince Montegrande</a>
+                <ul>
+                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+                <svg viewBox="0 0 100 80" width="40" height="40" id="hamburger-menu">
+                    <rect width="100" height="20" rx="8"></rect>
+                    <rect y="30" width="100" height="20" rx="8"></rect>
+                    <rect y="60" width="100" height="20" rx="8"></rect>
+                </svg>
+                <svg width="24" height="24" viewBox="0 0 24 24" id="theme-toggle">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                    <path d="M17 3.34a10 10 0 1 1 -15 8.66l.005 -.324a10 10 0 0 1 14.995 -8.336m-9 1.732a8 8 0 0 0 4.001 14.928l-.001 -16a8 8 0 0 0 -4 1.072" />
+                </svg>
+            </nav>
+        </header>
+
+        <hr>
+
+        <main>
+            <form method="GET" action="https://httpbin.org/get">
+                <fieldset>
+                        <legend>Contact</legend>
+                
+                        <label for="name">Name*:</label>
+                        <input type="text" id="name" name="name" pattern="[a-zA-Z\s]+" required>
+                
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email">
+
+                        <label for="message">Message*:</label>
+                        <textarea id="message" name="message" rows="4" maxlength="280" required></textarea>
+
+                        <input id="possible_bot" name="possible_bot" value="true" hidden>
+
+                        <noscript>Name must only use letters and spaces, Email must be valid, and Message must be less than 280 characters</noscript>
+
+                        <output id="info-output"></output>
+                        <output id="error-output"></output>
+                    
+                        <button type="submit">Submit</button>
+                </fieldset>
+              </form>
+              <address>
+                <div id="address-container">
+                    <h1>Social and Professional Links</h1>
+                    <p>Email: <a target="_blank" href="mailto:vlmontegrande@gmail.com">vlmontegrande@gmail.com</a></p>
+                    <p>Github: <a target="_blank" href="https://github.com/vlmontegrande">vlmontegrande</a></p>
+                    <p>Instagram: <a target="_blank" href="https://www.instagram.com/vince_montegrande/">vince_montegrande</a></p>
+                    <p>Resume: <a target="_blank" href="assets/misc/resume.pdf">pdf</a></p>
+                </div>
+            </address>
+        </main>
+
+        <hr>
+
+        <footer>
+            <a href="https://github.com/vlmontegrande/cse134b-hw2.git">Website Github</a>
+            <p><small>&copy; 2025 Vince Montegrande</small></p>
+        </footer>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', () => {
+                const themeToggle = document.querySelector('#theme-toggle');
+                themeToggle.style.display = 'block';
+                
+                const savedTheme = localStorage.getItem('theme');
+                const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)').matches;
+                
+                if (savedTheme === 'dark' || (savedTheme === null && prefersDarkScheme)) {
+                    document.documentElement.classList.add('dark-theme');
+                }
+                
+                const toggleTheme = () => {
+                    const isDarkTheme = document.documentElement.classList.toggle('dark-theme');
+                    
+                    themeToggle.innerHTML = isDarkTheme ? sunIcon : moonIcon;
+                    
+                    localStorage.setItem('theme', isDarkTheme ? 'dark' : 'light');
+                };
+                
+                themeToggle.addEventListener('click', toggleTheme);
+            });
+            
+            let form_errors = [];
+
+            const form = document.querySelector('form');
+            const nameInput = document.getElementById('name');
+            const emailInput = document.getElementById('email');
+            const messageTextarea = document.getElementById('message');
+            const errorOutput = document.getElementById('error-output');
+            const infoOutput = document.getElementById('info-output');
+
+            function showErrorMessage(message) {
+                errorOutput.textContent = message;
+                errorOutput.style.opacity = '1';
+                
+                setTimeout(() => {
+                    let opacity = 1;
+                    const fadeInterval = setInterval(() => {
+                        opacity -= 0.1;
+                        errorOutput.style.opacity = opacity;
+                        if (opacity <= 0) {
+                            clearInterval(fadeInterval);
+                            errorOutput.textContent = '';
+                            errorOutput.style.opacity = '1';
+                        }
+                    }, 100);
+                }, 3000);
+            }
+
+            function logError(fieldName, errorType) {
+                form_errors.push({
+                    field: fieldName,
+                    errorType: errorType
+                });
+            }
+
+            // Message validation and error
+
+            const maxChars = 280;
+
+            function updateCharCount() {
+                const remainingChars = maxChars - messageTextarea.value.length;
+                infoOutput.textContent = `${remainingChars} characters remaining`;
+                
+                if (remainingChars <= 10) {
+                    infoOutput.style.color = 'red';
+                } else if (remainingChars <= 50) {
+                    infoOutput.style.color = 'orange';
+                } else {
+                    infoOutput.style.color = 'var(--primary-color)';
+                }
+                
+                if (remainingChars < 0) {
+                    showErrorMessage('Message exceeds the maximum length');
+                    logError('message', 'exceeded_max_length');
+                }
+            }
+
+            updateCharCount();
+            messageTextarea.addEventListener('input', updateCharCount);
+
+            // Validation errors
+
+            nameInput.addEventListener('blur', () => {
+                if (!nameInput.checkValidity()) {
+                    showErrorMessage('Name is required and must contain only letters and spaces.');
+                    logError('name', 'invalid_format');
+                }
+            });
+
+            emailInput.addEventListener('blur', () => {
+                if (emailInput.value && !emailInput.checkValidity()) {
+                    showErrorMessage('Please enter a valid email address.');
+                    logError('email', 'invalid_format');
+                }
+            });
+
+            messageTextarea.addEventListener('blur', () => {
+                if (!messageTextarea.checkValidity()) {
+                    showErrorMessage('Message is required.');
+                    logError('message', 'empty_field');
+                }
+            });
+
+            form.addEventListener('submit', (e) => {
+                e.preventDefault();
+
+                let name = nameInput.value;
+                let email = emailInput.value;
+                let message = messageTextarea.value;
+                let errors = JSON.stringify(form_errors);
+
+                let xhr = new XMLHttpRequest();
+                let url = `https://httpbin.org/get?name=${encodeURIComponent(name)}&email=${encodeURIComponent(email)}&message=${encodeURIComponent(message)}&form-errors=${encodeURIComponent(errors)}`;
+                xhr.open('GET', url, true);
+                xhr.setRequestHeader('X-Sent-By', 'JavaScript');
+                xhr.send(null);
+
+                form.reset();
+                updateCharCount();
+            });
+        </script>
+    </body>
+</html>

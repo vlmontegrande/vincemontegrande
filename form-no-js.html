@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Contact</title>
+        <style>
+            @font-face {
+                font-family: "Volkhov";
+                src: url("assets/fonts/Volkhov/Volkhov-Regular.ttf");
+            }
+
+            @font-face {
+                font-family: "Volkhov";
+                src: url("assets/fonts/Volkhov/Volkhov-Bold.ttf");
+                font-weight: bold;
+            }
+
+
+            @font-face {
+                font-family: "Spectral";
+                src: url("assets/fonts/Spectral/Spectral-Regular.ttf");
+            }
+
+            :root {
+                --header-footer-height: 64px;
+                --big-link-size: 1.5rem;
+                --small-link-size: 1rem;
+                --header-size: 3rem;
+                --header-two-size: 2rem;
+                --header-three-size: 1rem;
+                --tablet-header-size: 2.5rem;
+                --phone-header-size: 2rem;
+
+                --nav-link-color: color(srgb 0.36 0.22 0.07);
+                --background-color: #fff6eb;
+                --on-background-color: #1d1a15;
+                --primary-color: #705d0d;
+                --on-primary-color: #ffffff;
+                --primary-container: #fce186;
+                --on-primary-container: #554500;
+                --surface-container: #f5eddf;
+                --text-color: #201d18;
+            }
+
+            /* Common between page styles */
+
+            * {
+                margin: 0;
+                padding: 0;
+            }
+
+            body {
+                min-height: 100dvh;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                background-color: var(--background-color, white);
+            }
+            
+            nav {
+                display: flex;
+                height: var(--header-footer-height, 64px);
+                justify-content: space-between;
+                align-items: center;
+                font-family: "Volkhov", Arial, Sans-serif;
+                font-weight: bold;
+            }
+
+            nav ul {
+                width: 15rem;
+                margin-right: 1rem;
+                display: flex;
+                justify-content: space-between;
+                list-style: none;
+                font-size: var(--small-link-size);
+            }
+
+            nav a {
+                display: inline-block;
+                text-decoration: none;
+                color: var(--nav-link-color, brown);
+                transition: transform 0.3s;
+            }
+            
+            nav a:hover {
+                transform: scale(1.1);
+            }
+
+            nav svg {
+                display: none;
+            }
+
+            #main-link {
+                color: var(--nav-link-color, brown);
+                font-size: var(--big-link-size);
+                margin-left: 1rem;
+            }
+
+            hr {
+                display: none;
+            }
+
+            footer {
+                min-height: var(--header-footer-height, 64px);
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                gap: 1rem;
+                font-family: "Volkhov", Arial, Sans-serif;
+            }
+
+            footer > :first-child {
+                margin-left: 1rem;
+            }
+
+            footer > :last-child {
+                margin-right: 1rem;
+            }
+
+            footer a {
+                font-size: (--big-link-size, 1.5rem);
+                text-decoration: none;
+                color: var(--nav-link-color, brown);
+                font-weight: bold;
+                transition: transform 0.3s;
+            }
+
+            footer a:hover {
+                transform: scale(1.1);
+            }
+
+            footer small {
+                font-size: var(--small-link-size, 1rem);
+                color: var(--nav-link-color, brown);
+            }
+
+            /* Page styles */
+
+            main {
+                font-family: "Spectral", Arial, Sans-serif;
+                flex: 1;
+                display: flex;
+                justify-content: space-around;
+                padding: 2rem;
+            }
+
+            form {
+                width: 40%;
+                height: fit-content;
+                background-color: var(--surface-container, gray);
+                padding: 2rem;
+                border-radius: 2rem;
+            }
+
+            fieldset:has(input:invalid) button, 
+            fieldset:has(textarea:invalid) button {
+                opacity: 0.5;
+                pointer-events: none;
+            }
+
+            fieldset {
+                display: flex;
+                flex-direction: column;
+                border: none;  
+                color: var(--primary-color, brown);
+            }
+
+            legend {
+                font-family: "Volkhov", Arial, Sans-serif;
+                font-size: var(--header-size, 3rem);
+                font-weight: bold;
+            }
+
+            label {
+                font-family: "Volkhov", Arial, Sans-serif;
+            }
+
+            input, textarea {
+                font-family: "Spectral", Arial, Sans-serif;     
+                margin-bottom: 1rem;
+                border: 1px solid var(--on-primary-container, brown);
+            }
+
+            input:user-invalid, textarea:user-invalid {
+                border: 2px solid red;
+                outline: none;
+            }
+
+            input:focus, textarea:focus {
+                outline-color: var(--on-primary-container, brown);
+            }
+
+            button {
+                align-self: end;
+                width: 8rem;
+                height: 2rem;
+                color: var(--primary-color, brown);
+                background-color: var(--primary-container, yellow);
+                font-family: "Volkhov", Arial, Sans-serif;
+                border-radius: 2rem;
+                border: 1px solid var(--primary-color, brown);
+                font-weight: bold;
+                transition: transform 0.3s;
+            }
+
+            button:hover {
+                transform: scale(1.1);
+            }
+
+            #error-output {
+                color: red;
+            }
+
+            address {
+                width: 40%;
+                color: var(--primary-color, brown);
+            }
+
+            address h1 {
+                font-family: "Volkhov", Arial, Sans-serif;
+                font-size: var(--header-size, 3rem);
+                font-style: normal;
+                font-weight: bold;
+            }
+
+            address a {
+                text-decoration: none;
+                color: var(--primary-color, brown);
+                font-weight: bold;
+                transition: transform 0.3s;
+                display: inline-block;
+            }
+
+            address a:hover {
+                transform: scale(1.1);
+            }
+
+            #address-container {
+                height: fit-content;
+                background-color: var(--primary-container, yellow);
+                padding: 1rem;
+                border-radius: 2rem;
+            }
+
+            /* Tablet/Restrictive Laptop Breakpoint */
+
+            @media screen and (min-width: 778px) and (max-width: 1023px) {
+                main {
+                    flex-direction: column;
+                }
+
+                form, address {
+                    width: 100%;
+                    box-sizing: border-box;
+                    margin-bottom: 2rem;
+                }
+
+                address {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                }
+            }
+
+            /* Phone Breakpoint */
+
+            @media screen and (max-width: 777px) {
+                nav ul {
+                    display: none;
+                }
+
+                nav svg {
+                    display: block;
+                    margin-right: 1rem;
+                    fill: var(--nav-link-color, brown);
+                }
+
+                main {
+                    flex-direction: column;
+                }
+
+                form, address {
+                    box-sizing: border-box;
+                    margin-bottom: 2rem;
+                }
+
+                form {
+                    min-width: 100%;
+                }
+
+                address {
+                    width: 100%;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                }
+            }
+
+            @media screen and (max-width: 395px) {
+                legend, address h1 {
+                    font-size: 32px;
+                }
+
+                footer a, footer p small {
+                    font-size: 12px;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            <nav>
+                <a href="index.html" id="main-link">Vince Montegrande</a>
+                <ul>
+                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+                <svg viewBox="0 0 100 80" width="40" height="40">
+                    <rect width="100" height="20" rx="8"></rect>
+                    <rect y="30" width="100" height="20" rx="8"></rect>
+                    <rect y="60" width="100" height="20" rx="8"></rect>
+                </svg>
+            </nav>
+        </header>
+
+        <hr>
+
+        <main>
+            <form method="GET" action="https://httpbin.org/get">
+                <fieldset>
+                        <legend>Contact</legend>
+                
+                        <label for="name">Name*:</label>
+                        <input type="text" id="name" name="name" pattern="[a-zA-Z\s]+" required>
+                
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email">
+
+                        <label for="message">Message*:</label>
+                        <textarea id="message" name="message" rows="4" maxlength="280" required></textarea>
+
+                        <input id="possible_bot" name="possible_bot" value="true" hidden>
+                    
+                        <button type="submit">Submit</button>
+
+                        <output id="error-output">Test error</output>
+                        <output id="info-output">Test info</output>
+                </fieldset>
+              </form>
+              <address>
+                <div id="address-container">
+                    <h1>Social and Professional Links</h1>
+                    <p>Email: <a target="_blank" href="mailto:vlmontegrande@gmail.com">vlmontegrande@gmail.com</a></p>
+                    <p>Github: <a target="_blank" href="https://github.com/vlmontegrande">vlmontegrande</a></p>
+                    <p>Instagram: <a target="_blank" href="https://www.instagram.com/vince_montegrande/">vince_montegrande</a></p>
+                    <p>Resume: <a target="_blank" href="assets/misc/resume.pdf">pdf</a></p>
+                </div>
+            </address>
+        </main>
+
+        <hr>
+
+        <footer>
+            <a href="https://github.com/vlmontegrande/cse134b-hw2.git">Website Github</a>
+            <p><small>&copy; 2025 Vince Montegrande</small></p>
+        </footer>
+    </body>
+</html>

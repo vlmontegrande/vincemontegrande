@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Projects</title>
+        <link rel="stylesheet" href="assets/css/projects.css">
+    </head>
+    <body>
+        <header>
+            <nav>
+                <a href="index.html" id="main-link">Vince Montegrande</a>
+                <ul id="menu">
+                    <li><a href="projects.html" id="projects-link">Projects</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+                <svg viewBox="0 0 100 80" width="40" height="40">
+                    <rect width="100" height="20" rx="8"></rect>
+                    <rect y="30" width="100" height="20" rx="8"></rect>
+                    <rect y="60" width="100" height="20" rx="8"></rect>
+                </svg>
+            </nav>
+        </header>
+
+        <hr>
+
+        <main>
+            <header>
+                <h1>Projects</h1>
+                <search>
+                    <form>
+                        <label for="project">Find a project</label>
+                        <span id="search-container">
+                            <input type="search" id="project" name="project">
+                            <button type="submit">Search</button>
+                        </span>
+                    </form>
+                </search>
+            </header>
+
+            <section id="projects-container">
+                <section class="project-container">
+                    <hgroup>
+                        <h2>
+                            CSE134B Homework 1
+                        </h2>
+                        <p>
+                            This was a project to modify a site, host it on Netlify, and play around with it.
+                        </p>
+                    </hgroup>
+                    <a target="_blank" href="https://regal-wisp-91b064.netlify.app/"><img src="assets/images/hw1-screenshot.png" alt="Image of website page"></a>
+                </section>
+
+                <section class="project-container">
+                    <hgroup>
+                        <h2>
+                            Smoothbrain
+                        </h2>
+                        <p>
+                            This is a WIP website built with React and Next.js. It is a Jackbox clone with custom UI and backend.
+                        </p>
+                    </hgroup>
+                    <img src="/assets/images/smoothbrain-mobile-screenshot.png" alt="A screenshot of the Smoothbrain UI">
+                </section>
+            </section>
+        </main>
+
+        <hr>
+
+        <footer>
+            <a href="https://github.com/vlmontegrande/cse134b-hw2.git">Website Github</a>
+            <p><small>&copy; 2025 Vince Montegrande</small></p>
+        </footer>
+    </body>
+</html>

@@ -51,6 +51,7 @@
 }
 
 #theme-toggle {
+    display: none;
     transition: transform 0.3s;
     fill: var(--nav-link-color, brown);
 }

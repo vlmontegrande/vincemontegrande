@@ -283,6 +283,7 @@ h1 {
 search {
     grid-column: 3;
     justify-self: end;
+    display: none;
 }
 
 #search-container {
@@ -332,7 +333,7 @@ search button:hover {
 }
 
 
-.project-container p {
+.project-description {
     color: var(--primary-color, brown);
     margin: 1rem 0;
 }
@@ -360,7 +361,7 @@ search button:hover {
     transform: scale(1.1);
 }
 
-.project-container h2 {
+.project-title {
     margin: 0;
 }
 

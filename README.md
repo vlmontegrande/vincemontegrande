@@ -1,0 +1,3 @@
+# Changes to Site
+
+I mostly wanted to fix some odds and ends from the previous work that I did for the previous homeworks. I added a search to my projects page a while ago, and I was just now able to give it functionality. I cleaned up some of the image name/paths and compressed them too. I deleted some of the unused media, like videos and audios. Finally, I fixed up the theme toggle so that it actually remembered the browser's preference.

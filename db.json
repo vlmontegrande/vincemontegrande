@@ -11,7 +11,7 @@
             "title": "Smoothbrain",
             "description": "This is a WIP website built with React and Next.js. It is a Jackbox clone with custom UI and backend.",
             "linkHref": "https://github.com/amanat361/smoothbrain",
-            "imageSource": "/assets/images/smoothbrain-mobile-screenshot.png",
+            "imageSource": "/assets/images/smoothbrain.png",
             "imageAlt": "A screenshot of the Smoothbrain UI"
         }
     ]   

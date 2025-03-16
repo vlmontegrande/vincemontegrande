@@ -331,10 +331,6 @@ project-card {
     border-radius: 2rem;
 }
 
-p {
-    color: var(--primary-color);
-}
-
 #buttons-container {
     display: flex;
     justify-content: center;

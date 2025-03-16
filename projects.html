@@ -7,6 +7,7 @@
         <title>Projects</title>
         <link rel="stylesheet" href="assets/css/projects.css">
         <script defer src="assets/js/theme.js"></script>
+        <script defer src="assets/js/search.js"></script>
     </head>
     <body>
         <header>
@@ -38,7 +39,7 @@
                     <form>
                         <label for="project">Find a project</label>
                         <span id="search-container">
-                            <input type="search" id="project" name="project">
+                            <input type="search" id="project-search" name="project">
                             <button type="submit">Search</button>
                         </span>
                     </form>
@@ -48,10 +49,10 @@
             <section id="projects-container">
                 <section class="project-container">
                     <hgroup>
-                        <h2>
+                        <h2 class="project-title">
                             CSE134B Homework 1
                         </h2>
-                        <p>
+                        <p class="project-description">
                             This was a project to modify a site, host it on Netlify, and play around with it.
                         </p>
                     </hgroup>
@@ -60,10 +61,10 @@
 
                 <section class="project-container">
                     <hgroup>
-                        <h2>
+                        <h2 class="project-title">
                             Smoothbrain
                         </h2>
-                        <p>
+                        <p class="project-description">
                             This is a WIP website built with React and Next.js. It is a Jackbox clone with custom UI and backend.
                         </p>
                     </hgroup>

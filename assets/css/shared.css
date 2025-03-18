@@ -1,4 +1,4 @@
-@font-face {
+/* @font-face {
     font-family: "Volkhov";
     src: url("../fonts/Volkhov/Volkhov-Regular.ttf");
 }
@@ -13,6 +13,25 @@
 @font-face {
     font-family: "Spectral";
     src: url("../fonts/Spectral/Spectral-Regular.ttf");
+} */
+
+@font-face {
+    font-family: 'Volkhov';
+    src: url('../fonts/Volkhov/volkhov-v17-latin-regular.woff2') format('woff2'), 
+        url('../fonts/Volkhov/volkhov-v17-latin-regular.ttf') format('truetype'); 
+}
+
+@font-face {
+    font-family: 'Volkhov';
+    font-weight: bold;
+    src: url('../fonts/Volkhov/volkhov-v17-latin-700.woff2') format('woff2'),
+        url('../fonts/Volkhov/volkhov-v17-latin-700.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Spectral';
+    src: url('../fonts/Spectral/spectral-v14-latin-regular.woff2') format('woff2'), 
+         url('../fonts/Spectral/spectral-v14-latin-regular.ttf') format('truetype'); 
 }
 
 :root {

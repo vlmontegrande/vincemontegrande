@@ -108,99 +108,6 @@ nav ul {
     margin-right: 1rem;
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    list-style: none;
-    font-size: var(--small-link-size);
-}
-
-nav a {
-    display: inline-block;
-    text-decoration: none;
-    color: var(--nav-link-color, brown);
-    transition: transform 0.3s;
-}
-  
-nav a:hover {
-    transform: scale(1.1);
-}
-
-#hamburger-menu {
-    display: none;
-}
-
-#main-link {
-    color: var(--nav-link-color, brown);
-    font-size: var(--big-link-size);
-    margin-left: 1rem;
-}
-
-hr {
-    display: none;
-}
-
-footer {
-    min-height: var(--header-footer-height, 64px);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 1rem;
-    font-family: "Volkhov", Arial, Sans-serif;
-}
-
-footer > :first-child {
-    margin-left: 1rem;
-}
-
-footer > :last-child {
-    margin-right: 1rem;
-}
-
-footer a {
-    font-size: (--big-link-size, 1.5rem);
-    text-decoration: none;
-    color: var(--nav-link-color, brown);
-    font-weight: bold;
-    transition: transform 0.3s;
-}
-
-footer a:hover {
-    transform: scale(1.1);
-}
-
-footer small {
-    font-size: var(--small-link-size, 1rem);
-    color: var(--nav-link-color, brown);
-}
-
-/* Common between page styles */
-
-* {
-    margin: 0;
-    padding: 0;
-}
-
-body {
-    min-height: 100dvh;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    background-color: var(--background-color, white);
-}
-  
-nav {
-    display: flex;
-    height: var(--header-footer-height, 64px);
-    justify-content: space-between;
-    align-items: center;
-    font-family: "Volkhov", Arial, Sans-serif;
-    font-weight: bold;
-}
-
-nav ul {
-    width: 15rem;
-    margin-right: 1rem;
-    display: flex;
-    justify-content: space-between;
     list-style: none;
     font-size: var(--small-link-size);
 }
@@ -288,6 +195,7 @@ img {
     width: 100%;
     display: block;
     object-position: top;
+    filter: blur(2px);
 }
 
 main {
@@ -307,10 +215,6 @@ main a:hover {
     transform: scale(1.1);
 }
 
-main header {
-    background-color: var(--background-color);
-}
-
 main header h1 {
     position: absolute;
     top: 50%;  
@@ -319,6 +223,7 @@ main header h1 {
     text-shadow: 2px 2px 4px black; 
     text-align: center;
     font-size: 5rem;
+    z-index: 1;
 }
 
 #content {
@@ -370,7 +275,7 @@ main header h1 {
         display: none;
     }
 
-    nav svg {
+    #hamburger-menu {
         display: block;
         margin-right: 1rem;
         fill: var(--nav-link-color, brown);
@@ -387,9 +292,11 @@ main header h1 {
     main header h1 {
         transform: none;
         position: static;
-        font-size: 2.5rem;
+        font-size: 3rem;
         text-shadow: none;
         display: block;
         height: 5rem;
+        margin-top: 1rem;
+        color: var(--nav-link-color, black);
     }
 }

@@ -1,3 +1,3 @@
-# Changes to Site
+# vincemontegrande.com (assuming I get the domain)
 
-I mostly wanted to fix some odds and ends from the previous work that I did for the previous homeworks. I added a search to my projects page a while ago, and I was just now able to give it functionality. I cleaned up some of the image name/paths and compressed them too. I deleted some of the unused media, like videos and audios. Finally, I fixed up the theme toggle so that it actually remembered the browser's preference.
+My personal website, started in my CSE 134b class at UCSD. It's now become the site that I use professionally!
